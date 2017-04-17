@@ -1,4 +1,4 @@
-<audio src="{{src}}" action="{{action}}" binderror="errorEvent" bindtimeupdate="timeupdateEvent" bindended="endEvent"></audio>
+<audio src="{{src}}" action="{{action}}" binderror="errorEvent" bindtimeupdate="timeupdateEvent" bindended="endEvent" id = "myAudio"></audio>
 <image class="play-bg" mode="aspectFill" src="{{picurl}}" ></image>
 <image wx:if="{{lyricHidden}}" bindtap="switchbgEvent" class="trun-bg" mode="aspectFill" src="{{picurl}}" style="transform: translateX(-50%) rotate({{deg}}deg);"></image>
 <view wx:if="{{!lyricHidden}}" id="container" class="play-container" animation="{{animationData}}" bindtap="switchbgEvent">
@@ -16,9 +16,13 @@
   	<view class="controls">
   		<image class="mode" mode="scaleToFill" bindtap="switchModeEvent" src="../../images/{{mode}}.png" />
   		<image mode="scaleToFill" bindtap="prevEvent" src="../../images/prev.png" />
+		<image mode="scaleToFill" bindtap="prev_f" src="../../images/prev_f_s.png" />
   		<image mode="scaleToFill" bindtap="actionEvent" src="../../images/{{status === 'play' ? 'pause' : 'play'}}.png" />
-  		<image mode="scaleToFill" bindtap="nextEvent" src="../../images/next.png" />
+  		<image mode="scaleToFill" bindtap="next_f" src="../../images/next_f_s.png" />
+		<image mode="scaleToFill" bindtap="nextEvent" src="../../images/next.png" />
+<!--
   		<image class="fav" mode="scaleToFill" bindtap="favEvent" src="../../images/{{fav}}.png" />
+-->
   	</view>
 </view>
 <toast hidden="{{toastHidden}}" duration="2000" bindchange="toastChange">{{toastMsg}}</toast>

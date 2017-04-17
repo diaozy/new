@@ -17,6 +17,7 @@ Page({
 	},
 	onReady: function() {
 		this.reload(this.data.currentId);
+		this.audioCtx = wx.createAudioContext('myAudio');
 	},
 	onShow: function() {
 		this.animation = wx.createAnimation({
@@ -40,6 +41,17 @@ Page({
 	nextEvent: function(e) {
 		this.reload(this.idsMap[Number(this.data.currentId)].nextid);
 	},
+
+
+	prev_f: function(e) {
+		this.audioCtx.seek(this.data.per-10);
+	},
+	next_f: function(e) {
+		this.audioCtx.seek(this.data.per+10);
+	},
+
+
+
 	actionEvent: function(e) {
 		var method = this.data.status === 'play' ? 'pause' : 'play';
 		this.setData({
